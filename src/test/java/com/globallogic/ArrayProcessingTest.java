@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class ArrayProcessingTest {
@@ -50,7 +49,7 @@ class ArrayProcessingTest {
     @Test
     void uniqueElementsMergeArray() {
         int[] actual = unit.uniqueElementsMergeArray(new int[]{1, 2, 4, 5}, new int[]{1, 3, 7, 5});
-        assertThat(actual).containsOnlyOnce(2, 3, 5, 7);
+        assertThat(actual).containsOnlyOnce(2, 3, 7);
     }
 
     @Test
@@ -69,7 +68,7 @@ class ArrayProcessingTest {
     @Test
     void uniqueElementsMergeArrayAllArraysIsEmpty() {
         int[] actual = unit.uniqueElementsMergeArray(new int[0], new int[0]);
-        assertEquals(new int[0], actual);
+        assertArrayEquals(new int[0], actual);
     }
 
     @Test
@@ -137,5 +136,23 @@ class ArrayProcessingTest {
     void sortEvenPositionArrayEmptyArray() {
         int[] actual = unit.sortEvenPositionArray(new int[0]);
         assertThat(actual).isEmpty();
+    }
+
+    @Test
+    void sortEvenPositionArrayOneElement() {
+        int[] actual = unit.sortEvenPositionArray(new int[]{7});
+        assertArrayEquals(new int[]{7}, actual);
+    }
+
+    @Test
+    void sortEvenPositionArrayTwoElements() {
+        int[] actual = unit.sortEvenPositionArray(new int[]{7, 2});
+        assertArrayEquals(new int[]{7, 2}, actual);
+    }
+
+    @Test
+    void sortEvenPositionArrayTreeElements() {
+        int[] actual = unit.sortEvenPositionArray(new int[]{7, 2});
+        assertArrayEquals(new int[]{7, 2}, actual);
     }
 }
