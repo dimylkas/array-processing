@@ -152,7 +152,7 @@ class ArrayProcessingTest {
 
     @Test
     void sortEvenPositionArrayTreeElements() {
-        int[] actual = unit.sortEvenPositionArray(new int[]{7, 2});
-        assertArrayEquals(new int[]{7, 2}, actual);
+        int[] actual = unit.sortEvenPositionArray(new int[]{7, 2, 1});
+        assertArrayEquals(new int[]{1, 2, 7}, actual);
     }
 }
