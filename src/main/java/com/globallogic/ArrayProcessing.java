@@ -15,46 +15,26 @@ public class ArrayProcessing {
         int uniqueElementsCounter = 0;
         int[] arrOfUniqueElements = new int[arr.length];
 
-        for (int i = 0; i <= arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             if (!common.contains(arrOfUniqueElements, arr[i])) {
                 arrOfUniqueElements[uniqueElementsCounter] = arr[i];
                 uniqueElementsCounter++;
             }
         }
 
-        int[] a = new int[uniqueElementsCounter];
+        int[] uniqArray = new int[uniqueElementsCounter];
 
-        System.arraycopy(arrOfUniqueElements, 0, a, 0, arrOfUniqueElements.length);
+        System.arraycopy(arrOfUniqueElements, 0, uniqArray, 0, uniqueElementsCounter);
 
-        return a;
-
-//        int uniqueElementsCounter = 0;
-//
-//        for (int i = 0; i <= arr.length; i++) {
-//            if (indexOf(arr, i) == i) {
-//                uniqueElementsCounter++;
-//            }
-//        }
-//
-//        int[] arrOfUniqueElements = new int[uniqueElementsCounter];
-//
-//        for (int i = 0, j = 0; i <= arr.length; i++) {
-//            if (indexOf(arr, i) == i) {
-//                arrOfUniqueElements[j] = arr[i];
-//                j++;
-//            }
-//        }
-
-        // return arrOfUniqueElements;
+        return uniqArray;
     }
 
     public int[] uniqueElementsMergeArray(int[] arr1, int[] arr2) {
-//        int[] mergedArray = new int[arr1.length + arr2.length];
-//        System.arraycopy(arr1, 0, mergedArray, 0, arr1.length);
-//        System.arraycopy(arr2, 0, mergedArray, arr1.length, arr2.length);
-//
-//        return uniqueElements(mergedArray);
-        return null;
+        int[] mergedArray = new int[arr1.length + arr2.length];
+        System.arraycopy(arr1, 0, mergedArray, 0, arr1.length);
+        System.arraycopy(arr2, 0, mergedArray, arr1.length, arr2.length);
+
+        return uniqueElements(mergedArray);
     }
 
     public int[] commonElements(int[] arr1, int[] arr2) {
